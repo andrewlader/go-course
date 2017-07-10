@@ -1,0 +1,176 @@
+Let's Go
+Class #1
+
+Andrew Lader
+Senior Technical Principal, Sirrus7
+andrew@sirrus7.com
+
+* So, Let's Go!
+
+First, has _everyone_ installed Go?
+
+*Agenda*
+
+- Why Go?
+- Workspace
+- Basics of Go
+- Quick overview of pointers vs by-value
+
+* Why go with Go?
+
+- Compiles to machine code (read: *Fast*!!)
+- Platform agnostic
+- Garbage collected
+- Concurrency is first class citizen
+- Built-in unit testing
+- Documentation is part of the language
+- Rich standard library
+- Building executables are easy and faster
+
+.image https://camo.githubusercontent.com/98ed65187a84ecf897273d9fa18118ce45845057/68747470733a2f2f7261772e6769746875622e636f6d2f676f6c616e672d73616d706c65732f676f706865722d766563746f722f6d61737465722f676f706865722e706e67 _ 128
+
+* Why not Go?
+
+- A relatively young language, though not so much an issue anymore
+- Does not have true OO
+- Handling errors can be tedious, but required (maybe not a bad thing?)
+
+* Workspace
+
+- The `$GOPATH` environment points to the root folder for all of your Go projects
+- Under that directory will be a `src` folder
+- A project consists of the SCM `/` your name or organization `/` and the project name
+- For example
+
+    bitbucket.org/nordstrom/order-guard
+
+    order-guard.go                      // The main package, which is run when the service starts up
+    |
+    |-- 📂 webapi
+            |
+            |-- handlers.go         // Contains all of the API handlers for the web service
+            |-- listener.go         // The listener for all of the incoming HTTP requests, acts as the main entry point for the start of the service
+            |-- router.go           // Routs the HTTP requests to a specific handler
+    |-- 📂 service
+            |
+            |-- dispatcher.go       // Dispatches new work to an available worker from its pool of workers
+            |-- return.go           // Lists the possible return values for the service
+            |-- service.go          // The entry point for all API requests from the web
+
+* Basics of Go
+
+- Organized into packages
+- A package name must match the folder name
+- Each file in a package contains the package name, and has the extension `.go`
+- Variables, structs and functions that have the first letter capitalized are exported
+
+    var Foo int
+    var boo string
+
+- Executables have exactly one package called `main`
+    package main
+
+    func main() {
+        // kick off some work
+
+        // wait for it to finish
+
+        // exit
+    }
+
+* Data Types
+
+- The usual suspects:
+    bool
+    int, int8, int16, int32, int64
+    uint, uint8, uint16, uint32, uint64, uintptr
+    byte // (unit8)
+    rune // (int32)
+    float32, float64
+    complex64, complex128
+    string
+- Variable declarations are like this:
+    variableName    string
+    anotherVariable int
+    trueOrFalse     bool
+
+* Data Structs & Functions
+
+- Essentially, code consists of data struct definitions and functions
+- A struct is declared like so:
+
+    type foo {
+        firstName   string
+        lastName    string
+        addressOne  string
+        paymentID   string
+    }
+
+- A function is declared like so, and can have multiple return values
+
+    func fooBar(inputOne string, inputTwo []byte, randomFlag bool) (*foo, error) {
+        // code goes here
+
+        return foo, nil
+    }
+
+* Methods
+
+- For most OO languages, a class definition includes methods
+- in Go, which has limited OO, you have *receivers*
+
+    func (service *Service) CalculateTotalOrderAmount() float32 {
+    }
+
+- Therefore, only a pointer to a struct called `Service` can call the function `CalculateTotalOrderAmount`
+
+    service := &Service{
+        orderLines []orderLine
+    }
+
+    total := service.CalculateTotalOrderAmount()
+
+- Note the way the variables are assinged using `:=` as opposed to just `=`. This saves the step of declaring the variable first
+
+* First coding example
+
+- A simple `main` function
+    func main() {
+        var verbose bool
+
+        fmt.Print("**********************\n")
+        fmt.Print("Welcome to an example!\n")
+        fmt.Print("**********************\n\n")
+
+        flag.BoolVar(&verbose, "verbose", false, "verbose flag")
+        flag.Parse()
+        fmt.Printf("The verbose flag was set to: %v\n", verbose)
+    }
+
+* Pass By-Reference vs By-value
+
+- Pointers are faster
+- With pointers, values can be modified within functions
+- By-Value should be considered carefully for efficiency 
+
+[[https://play.golang.org/p/VhQ3fMu-7v][playground example]]
+
+* Quicksort walkthrough
+
+- *Go* to code
+
+[[https://github.com/AndrewLader/go-qsort.git]]
+
+* Assignment
+
+- Create a simple Go application that
+    1) prints out the cards in a deck
+    2) shuffles the deck and prints out the new deck order
+
+* Resources
+
+Go Basics from golang.org
+[[https://golang.org/doc/code.html][How to Write Go Code]]
+
+Workspaces
+[[https://astaxie.gitbooks.io/build-web-application-with-golang/en/01.2.html][$GOPATH and Workspace]]
