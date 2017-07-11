@@ -37,11 +37,11 @@ The installer should have added the appropriate environment variables, but just 
 
 The workspace is defined first by the location pointed to by `GOPATH`. Beneath the `src` folder is where projects are located.
 
-Usually, to conform to best practices, beenath the `src` folder are the names of the organizations where the code is stored. Typically, these are SCMs, like `github.com`.
+Usually, to conform to best practices, beneath the `src` folder are the names of the organizations where the code is stored. Typically, these are SCMs, like `github.com`.
 
-Beneath them is the name or organization name of the account owner for the SCM. For example: `nordstrom` or your own name.
+Beneath that folder is the name of the account owner for the SCM. For example: `nordstrom` or your own name.
 
-And finally, the final folder is the actual Go project folder. 
+And finally, the last folder is the Go project folder.
 
 ```
 $HOME/work                          // The main source folder (GOPATH)
