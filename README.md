@@ -22,7 +22,7 @@ export PATH=$PATH:$GOPATH/bin
 
 1. Create the `C:\work` folder and the `src` folder beneath it
 
-The isntaller should have added the appropriate environment variables, but just in case:
+The installer should have added the appropriate environment variables, but just in case:
 
 1. Add `GOPATH` environment variable
 
