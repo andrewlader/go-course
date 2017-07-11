@@ -43,6 +43,7 @@ Beneath them is the name or organization name of the account owner for the SCM. 
 
 And finally, the final folder is the actual Go project folder. 
 
+```
 ~/work                              // The main folder where we will do our coursework, but can be any folder name
     |
     |-- 📂 src
@@ -53,6 +54,7 @@ And finally, the final folder is the actual Go project folder.
         |-- 📂 github.com
             |--  📂 andrewlader
                 |-- go-course       // Location of go-course work
+```
 
 ### Verify Go Installation
 
