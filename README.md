@@ -65,3 +65,28 @@ go env
 ```
 
 Look at the ouput and ensure that the `GOPATH` environment variable is set appropriately.
+### Class IDE
+
+<img src="./images/vscode.icns" width="64"/>
+For this course, the IDE of choice is Visual Studio Code, which can be downloaded from [here](https://code.visualstudio.com/download)
+
+#### Go Extension Plugin
+
+Once this has been installed, install the `Go Extension` plugin using the following steps:
+
+1. Launch VS Code Quick Open (`Command + P` on a Mac, or `Ctrl + P` on a Windows machine)
+1. Type the following command and press `Enter`
+
+```
+ext install Go
+```
+
+You may be told to reload VS Code.
+
+#### Configure Go Tools
+
+Once the plugin has been installed, it is time to install some additional Go tools to help with editing.
+
+1. Launch the Command Palette (`Command + Shift P` on a Mac, or `Ctrl + Shift + P` on Windows)
+1. Type `Go Install`. The option `Go: Install/Update Tools` should be visible.
+1. Select this option, and wait while all of the Go tools are installed
