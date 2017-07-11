@@ -18,11 +18,11 @@ First, has _everyone_ installed Go?
 - Coding example
 - Homework
 
-.image ./goat_eating_homework.gif _ 128
+.image ./images/goat_eating_homework.gif _ 128
 
 * Why go with Go?
 
-.image ./pros.png
+.image ./images/pros.png
 
 - Compiles to machine code (read: *Fast*!!)
 - Platform agnostic
@@ -33,11 +33,11 @@ First, has _everyone_ installed Go?
 - Rich standard library
 - Building executables are easy and faster
 
-.image ./gopher.png _ 64
+.image ./images/gopher.png _ 64
 
 * Why not Go?
 
-.image ./cons.png
+.image ./images/cons.png
 
 - A relatively young language, though not so much an issue anymore
 - Does not have true OO
@@ -171,7 +171,7 @@ So, what is Quicksort?
 
 Now, it's time to Code!
 
-.image ./code.png _ 300
+.image ./images/code.png _ 300
 
 [[https://github.com/AndrewLader/go-course/go-qsort.zip][download qsort code]]
 
