@@ -18,7 +18,7 @@ export GOPATH=$HOME/work
 export PATH=$PATH:$GOPATH/bin
 ```
 
-**NOTE:** If you are using a Nordstrom Mac, you will need to change your default shell from `KSH` to `Bash` via the following command:
+**NOTE:** If you are using a Nordstrom Mac, you will need to change your default shell from `ksh` to `bash` via the following command:
 
 ```
 chsh -s /bin/bash
