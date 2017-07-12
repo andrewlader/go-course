@@ -67,7 +67,7 @@ go env
 Look at the ouput and ensure that the `GOPATH` environment variable is set appropriately.
 ### Class IDE
 
-<img src="./images/vscode.png" width="64"/>
+<img src="https://github.com/AndrewLader/go-course/blob/master/images/vscode.PNG" width="241" test="VSCode" />
 For this course, the IDE of choice is Visual Studio Code, which can be downloaded from [here](https://code.visualstudio.com/download)
 
 #### Go Extension Plugin
