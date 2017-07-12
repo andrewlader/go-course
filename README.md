@@ -18,6 +18,14 @@ export GOPATH=$HOME/work
 export PATH=$PATH:$GOPATH/bin
 ```
 
+**NOTE:** If you are using a Nordstrom Mac, you will need to change your default shell from `KSH` to `Bash` via the following command:
+
+```
+chsh -s /bin/bash
+```
+
+After entering your password, close all of your terminal instances and re-start the terminal console.
+
 #### Windows
 
 1. Create the `C:\work` folder and the `src` folder beneath it
