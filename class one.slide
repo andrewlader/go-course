@@ -27,7 +27,7 @@ First, has _everyone_ installed Go?
 - Compiles to machine code (read: *Fast*!!)
 - Platform agnostic
 - Garbage collected
-- Concurrency is first class citizen
+- Concurrency is first class citizen (*channels* are our friend)
 - Built-in unit testing
 - Documentation is part of the language
 - Rich standard library
@@ -50,7 +50,6 @@ Understanding a Go Workspace
 - The `$GOPATH` environment points to the root folder for all of your Go projects
 - Under that directory will be a `src` folder
 - A project consists of the SCM `/` your name or organization `/` and the project name
-- For example
 
     bitbucket.org/nordstrom/order-guard
 
@@ -99,21 +98,22 @@ Understanding a Go Workspace
     float32, float64
     complex64, complex128
     string
-- Variable declarations are like this:
+- Variable declarations begin with the variable name followed by the type:
     variableName    string
     anotherVariable int
     trueOrFalse     bool
 
 * Data Structs & Functions
 
-- Essentially, code consists of data struct definitions and functions
+- Code predominantly consists of data structs and functions
 - A struct is declared like so:
 
-    type foo {
+    type foo struct {
         firstName   string
         lastName    string
         addressOne  string
-        paymentID   string
+        amount      float32
+        refCount    int
     }
 
 - A function is declared like so, and can have multiple return values
@@ -141,6 +141,18 @@ Understanding a Go Workspace
     total := service.CalculateTotalOrderAmount()
 
 - Note the way the variables are assinged using `:=` as opposed to just `=`. This saves the step of declaring the variable first
+
+* Error Handling
+
+- Go has the concept of exceptions in the form of *panics*
+- Panics should be used rarely, at best!
+- Instead, functions should return errors, like so
+
+    output, err := json.Marshal(myObject)
+    if err != nil {
+        log.Printf("an error occurred marshing the object: %v", err)
+        return errors.New("This method failed because object marshaling failed")
+    }
 
 * First coding example
 
@@ -175,11 +187,14 @@ Now, it's time to Code!
 
 [[https://github.com/AndrewLader/go-course/go-qsort.zip][download qsort code]]
 
-* Assignment
+* Assignment due next week
 
 - Create a simple Go application that
-    1) prints out the cards in a deck
-    2) shuffles the deck and prints out the new deck order
+    1. models a deck of cards (52 cards, 4 suits)
+    2. prints out the cards in the deck
+    3. shuffles the deck and prints out the new deck order
+
+*** _I_will_be_avaialble_to_help_during_the_day_and_evening_hours_
 
 * Resources
 
@@ -188,3 +203,6 @@ Go Basics from golang.org
 
 Workspaces
 [[https://astaxie.gitbooks.io/build-web-application-with-golang/en/01.2.html][$GOPATH and Workspace]]
+
+Playground
+[[https://play.golang.org][Golang Playground]]
