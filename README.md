@@ -75,7 +75,7 @@ For this course, the IDE of choice is Visual Studio Code, which can be downloade
 
 Once this has been installed, install the `Go Extension` plugin using the following steps. Make sure you pick the one with over 900K downloads.
 
-<img src="https://github.com/AndrewLader/go-course/blob/master/images/go-plugin.png" width="145" test="Go Plugin" />
+<img src="https://github.com/AndrewLader/go-course/blob/master/images/go-plugin.png" width="290" test="Go Plugin" />
 
 1. Launch VS Code Quick Open (`Command + P` on a Mac, or `Ctrl + P` on a Windows machine)
 1. Type the following command and press `Enter`
