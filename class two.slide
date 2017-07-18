@@ -63,4 +63,21 @@ andrew@sirrus7.com
 
 [[https://www.linkedin.com/pulse/concurrency-golang-uttam-gandhi][Concurency in Golang]]
 
+* How to: Go Routines and Channels
 
+- To spawn a Go routine:
+
+    go fooBar(args...)
+
+- Nomenclature for channels
+
+    foo <-channelOne
+    channeltwo <- bar
+
+[[https://play.golang.org/p/Ph9RjvvhoL][Go Routines and Channels Playground]]
+
+* Resources
+
+[[https://talks.golang.org/2012/waza.slide][Concurrency is not Parallelism]]
+
+[[https://www.linkedin.com/pulse/concurrency-golang-uttam-gandhi][Concurency in Golang]]
