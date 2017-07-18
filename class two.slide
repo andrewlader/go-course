@@ -1,0 +1,66 @@
+Let's Go
+Class #2
+
+Andrew Lader
+Senior Technical Principal, Sirrus7
+andrew@sirrus7.com
+
+* So, Let's Go!
+
+*Agenda*
+
+- Examine the Homework
+- Go Routines & Channels Baby!!!
+- Homework
+
+* What did we learn from the Homework?
+
+- How to structure your app
+- How to model objects in Go
+- Enums in Go
+- Slice initializations (random?)
+- How to use builtin packages (rand)
+- What Go forces you to do, and why is that good?
+
+* So what in the world is Concurrency? (Go Routines and Channels)
+
+- Let's start with concurrency vs parrallelism
+
+    * Concurrency is about dealing with lots of things at once {structure}
+    * Parrallelism is about running lots of things at once {execution}
+
+*Related*, but not exactly the same
+
+.image ./images/concurrency_vs_parallelism.png _ 1259
+
+* Go Provides Concurrent Structure
+
+- Create individual pieces
+- Each can work independently
+- Use communication to coordinate the pieces (channels!)
+- Organize the code better
+
+[[https://talks.golang.org/2012/waza.slide][Concurrency is not Parallelism]]
+
+* Go Routines and Channels
+
+*Go*Routines*
+
+- Go routines are a basic element of Go
+- They allow the process to spawn a function executing independently
+- If the machine allows multiple threads, then it will execute on other threads
+
+*Channels*
+
+- Channels are how Go Routines communicate with one another
+- Think of them as synchronised message queues
+- Sending and receiving values to and from a channel is a blocking concurrency_vs_parallelism
+
+*Important*
+
+- Order of execution of the Go routines is not guaranteed
+- Other ways to control the order of execution, like `select case` and `waitgroup`
+
+[[https://www.linkedin.com/pulse/concurrency-golang-uttam-gandhi][Concurency in Golang]]
+
+
