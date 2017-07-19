@@ -89,7 +89,7 @@ andrew@sirrus7.com
 
 [[https://play.golang.org/p/Ph9RjvvhoL][Go Routines and Channels Playground]]
 
-* WaitGroups
+* Exit your App Gracefully!
 
 - So Go routines and channels are awesome, but how does the application exit gracefully?
 - We can use `WaitGroups` to wait for all routines to exit before the main proccess exits
