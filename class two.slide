@@ -71,10 +71,45 @@ andrew@sirrus7.com
 
 - Nomenclature for channels
 
-    foo <-channelOne
-    channeltwo <- bar
+    channelOne := make(chan string)
+    foo <-channelOne    // blocks waiting to pull the next item from the channel
+    channeltwo <- bar   // blocks waiting to add bar to the channel
+
+* Channels
+
+- Go routines are pretty self-explanatory, at least for now...
+- Channels require more attention as they are used to communicate across routines
+- Channels can be buffered and unbuffered
+- Unbuffered channels only have one item _(default)_
+- Buffered channels have an allocated amount of items
+
+    channelOne := make(chan int, 10) // create a channel that bufferes 10 integers
+
+- The example above would not block if it had 9 items and the code wanted to add a 10th
 
 [[https://play.golang.org/p/Ph9RjvvhoL][Go Routines and Channels Playground]]
+
+* WaitGroups
+
+- So Go routines and channels are awesome, but how does the application exit gracefully?
+- We can use `WaitGroups` to wait for all routines to exit before the main proccess exits
+- Part of the `sync` package, `WaitGroups` have three main behaviors:
+
+    waitgroup := &sync.WaitGroups
+    waitgroup.Add(1)    // can be any integer > 0, incremented when creating new routines
+    waitGroup.Done()    // called by a routine right before it exits
+    waitGroup.Wait()    // used by the main application to wait for everything to shutdown
+
+* Locks
+
+- Locks can be used to control access to resources (data, databases, etc...)
+- They come in two flavors: `Mutex` and `RWMutex`
+- `Mutex` allows code to exclusively own a resource until it unlocks it
+- `RWMutex` controls the read/write access to a resource, allowing multiple routines to have read access simultaneously, or one writer
+
+    mutex := &sync.Mutex{}
+    mutex.Lock()
+    mutex.Unlock()
 
 * Resources
 
