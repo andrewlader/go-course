@@ -111,8 +111,24 @@ andrew@sirrus7.com
     mutex.Lock()
     mutex.Unlock()
 
+- Go's `defer` statement ensures some bit of code is executed right as function exits (end of the function scope)
+
+    func fooBar() {
+        defer cleanUp()
+
+        // code for the fooBar function
+    }
+
+* Homework
+
+- I will supply you will 10 delicious text files
+- Your mission --_should_you_choose_to_accept_it --_and_you_will!
+- Is to concurrently consume the files, counting the number of words in each files, and outputting the totals
+
 * Resources
 
 [[https://talks.golang.org/2012/waza.slide][Concurrency is not Parallelism]]
 
 [[https://www.linkedin.com/pulse/concurrency-golang-uttam-gandhi][Concurency in Golang]]
+
+[[https://www.cs.cmu.edu/~crary/819-f09/Hoare78.pdf][C.A.R Hoare's Original 1978 Paper on Communicating Sequential Processes]]
