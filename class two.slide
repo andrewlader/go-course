@@ -105,13 +105,14 @@ andrew@sirrus7.com
 - Locks can be used to control access to resources (data, databases, etc...)
 - They come in two flavors: `Mutex` and `RWMutex`
 - `Mutex` allows code to exclusively own a resource until it unlocks it
-- `RWMutex` controls the read/write access to a resource, allowing multiple routines to have read access simultaneously, or one writer
 
     mutex := &sync.Mutex{}
     mutex.Lock()
     mutex.Unlock()
 
-- Go's `defer` statement ensures some bit of code is executed right as function exits (end of the function scope)
+- `RWMutex` controls the read/write access to a resource, allowing multiple routines to have read access simultaneously, or one writer
+
+- Go's `defer` statement ensures some bit of code is executed right as the function exits (end of the function scope)
 
     func fooBar() {
         defer cleanUp()
@@ -121,14 +122,19 @@ andrew@sirrus7.com
 
 * Homework
 
-- I will supply you will 10 delicious text files
-- Your mission --_should_you_choose_to_accept_it --_and_you_will!
-- Is to concurrently consume the files, counting the number of words in each files, and outputting the totals
+.caption Your mission --_should_you_choose_to_accept_it_ --_and_you_will!_
+
+1. I will supply you with 10 "_delicious_" text files
+
+2. You will write an app that will:
+
+- Concurrently count the number of words in each of the 10 files
+- Concurrently output the totals to the console
 
 * Resources
 
-[[https://talks.golang.org/2012/waza.slide][Concurrency is not Parallelism]]
+- [[https://talks.golang.org/2012/waza.slide][Concurrency is not Parallelism]]
 
-[[https://www.linkedin.com/pulse/concurrency-golang-uttam-gandhi][Concurency in Golang]]
+- [[https://www.linkedin.com/pulse/concurrency-golang-uttam-gandhi][Concurency in Golang]]
 
-[[https://www.cs.cmu.edu/~crary/819-f09/Hoare78.pdf][C.A.R Hoare's Original 1978 Paper on Communicating Sequential Processes]]
+- [[https://www.cs.cmu.edu/~crary/819-f09/Hoare78.pdf][C.A.R. Hoare's Original 1978 Paper on Communicating Sequential Processes]]
