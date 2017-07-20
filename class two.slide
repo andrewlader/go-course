@@ -54,14 +54,11 @@ andrew@sirrus7.com
 
 - Channels are how Go Routines communicate with one another
 - Think of them as synchronised message queues
-- Sending and receiving values to and from a channel is a blocking concurrency_vs_parallelism
+- Sending and receiving values to and from a channel can block
 
 *Important*
 
 - Order of execution of the Go routines is not guaranteed
-- Other ways to control the order of execution, like `select case` and `waitgroup`
-
-[[https://www.linkedin.com/pulse/concurrency-golang-uttam-gandhi][Concurency in Golang]]
 
 * How to: Go Routines and Channels
 
@@ -100,8 +97,7 @@ andrew@sirrus7.com
     mutex.Lock()
     mutex.Unlock()
 
-- `RWMutex` controls the read/write access to a resource, allowing multiple routines to have read access simultaneously, or one writer
-
+- `RWMutex` allows mutliple readers, and one writer
 - Go's `defer` statement ensures some bit of code is executed right as the function exits (end of the function scope)
 
     func fooBar() {
