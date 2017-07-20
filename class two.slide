@@ -89,20 +89,10 @@ andrew@sirrus7.com
 
 [[https://play.golang.org/p/Ph9RjvvhoL][Go Routines and Channels Playground]]
 
-* Exit your App Gracefully!
-
-- So Go routines and channels are awesome, but how does the application exit gracefully?
-- We can use `WaitGroups` to wait for all routines to exit before the main proccess exits
-- Part of the `sync` package, `WaitGroups` have three main behaviors:
-
-    waitgroup := &sync.WaitGroups
-    waitgroup.Add(1)    // can be any integer > 0, incremented when creating new routines
-    waitGroup.Done()    // called by a routine right before it exits
-    waitGroup.Wait()    // used by the main application to wait for everything to shutdown
-
 * Locks
 
-- Locks can be used to control access to resources (data, databases, etc...)
+- *Important*: Not needed for concurrency
+- Locks are used to control access to resources (data, databases, etc...)
 - They come in two flavors: `Mutex` and `RWMutex`
 - `Mutex` allows code to exclusively own a resource until it unlocks it
 
@@ -120,6 +110,33 @@ andrew@sirrus7.com
         // code for the fooBar function
     }
 
+* Exit your App Gracefully!
+
+- So Go routines and channels are awesome, but how does the application exit gracefully?
+- We can use `WaitGroups` to wait for all routines to exit before the main proccess exits
+- Part of the `sync` package, `WaitGroups` have three main behaviors:
+
+    waitgroup := &sync.WaitGroups
+    waitgroup.Add(1)    // can be any integer > 0, incremented when creating new routines
+    waitGroup.Done()    // called by a routine right before it exits
+    waitGroup.Wait()    // used by the main application to wait for everything to shutdown
+
+* The Best for Last
+
+- `select` statement in Go can choose between channels
+
+    select {
+        case <-channelQuit:
+        // add code to shutdown Go routine
+
+        case work := <-workQueue:
+        // add code to do the work
+
+        case <-time.After(30 * time.Second):
+        // waited 30 seconds and nothing happened
+        // report this and exit
+    }
+
 * Homework
 
 .caption Your mission --_should_you_choose_to_accept_it_ --_and_you_will!_
@@ -130,6 +147,8 @@ andrew@sirrus7.com
 
 - Concurrently count the number of words in each of the 10 files
 - Concurrently output the totals to the console
+- Concurrency is configurable!
+- Unit tests!!
 
 * Resources
 
