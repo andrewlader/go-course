@@ -1,0 +1,179 @@
+Let's Go
+Class #4
+
+Andrew Lader
+Senior Technical Principal, Sirrus7
+andrew@sirrus7.com
+
+* So, Let's Go!
+
+*Agenda*
+
+- Go Best Practices & Idiomatic Practices
+- Examine the Homework
+- New Homework Assignment
+
+* Best Practices
+
+- There are coding best practices, and then there are language best practices
+- Examples of coding best practices are patterns, or SOLID principles (read: Clean Code, the book) that can be applied to any language
+- Language best practices evolve from the idionsyncrasies of the language itself
+
+.image https://golang.org/doc/gopher/fiveyears.jpg _ 500
+
+* Error Handling
+
+- Go doesn't do exceptions, and a *panic* is fatal, so what's the best way to handle errors?
+- Go's functions can return multiple values, which makes error handling easy
+- Functions can return their result *and* an error, if there was one
+
+Thus...
+
+    func myFunction(arg1 string, arg2 int) (int, error) {
+        actualValue, err := someOtherFunc(arg1, arg2)
+        if (err != nil) {
+            // handle the error here and return, which stops executing this function further
+            return nil, err
+        }
+
+        // if no errors, then keep working...
+
+        return theValue, nil
+    }
+
+* Error Handling (continued)
+
+- Avoid nested error handling
+
+    // don't do this
+    func doThis(arg1 int) {
+        result, err := anotherFunc(arg1)
+        if err == nil {
+            anotherResult, err := someOtherFunc(arg1, result)
+            if err == nil {
+                finalResult, err := finalFunc(arg1, anotherResult)
+            }
+            return
+        }
+        return
+    }
+
+* Proper Error Handling
+
+    // do this instead
+    func doThis(arg1 int) {
+        result, err := anotherFunc(arg1)
+        if err != nil {
+            return
+        }
+
+        anotherResult, err := someOtherFunc(arg1, result)
+        if err != nil {
+            return
+        }
+
+        finalResult, err := finalFunc(arg1, anotherResult)
+
+        return
+    }
+
+* Readability Conventions
+
+- When using the error value immediately, use the variable name `err`
+- Specific errors used later in the code should have full variable names, like `specificError`
+- Comments should have a spaces afte the slashes
+    // do this
+    //not this
+- Variable and functions names should be meaningful; shortening them can lead to confusion
+- Variables should be nouns, and functions should begin with verbs
+    func calculateStateTax(stateName string) {  // good
+    }
+
+    func calcStTx(stNm string) {                // bad, misleading
+    }
+
+* More Readability Conventions
+
+- With constructors that have many parameters, pass in a single config struct
+- Best option is to pass inline config struct
+
+    newObj, err := newObject(objConfig {
+        Threshold:  threshold,
+        SomeValue:  someValue,
+        Timeout:    timeout,
+    })
+    if err != nil {
+        log.Fatal(err)
+    }
+
+* Using Defer
+
+- There is a cost to using the defer statement, which can affect fast running functions (order of nanoseconds)
+- Use it when it improves readability
+
+    func doConcurrentWork(locker *sync.Mutex) {
+        locker.Lock()
+        defer locker.Unlock()
+
+        // rest of the code...
+    }
+
+* Using Interfaces
+
+- Interfaces are implemented implicitly (non-declared)
+- Provide polymorphism by implementing the mehtods defined in interfaces
+- Can contain other interfaces
+
+    type I1 interface {     // methods i1(), i2(), fmt.Stringer()
+        i1()
+        I2
+        fmt.Stringer
+    }
+
+    type I2 interface {
+        i2()
+    }
+
+* Empty Interface
+
+- Go uses `interface{}` to represent any type
+- This can be used to create functions that accept any value
+
+    func printAnyValue(someValue interface{}) {
+        fmt.Printf("%v, %T", someValue, someValue)
+    }
+
+* Handling Overloading of Types in Go
+
+- Use type switching to handle overloading of different types
+
+    func fooBar(inputValue interface{}) {
+        switch inputValue.(type) {
+            case string:
+                stringValue := inputValue.(string)
+                fmt.Printf("String value: %s", stringValue)
+            case int:
+                intValue := inputValue.(int)
+                fmt.Printf("Integer value: %d", intValue)
+        }
+    }
+
+    func main() {
+        intValue := 32
+        stringValue := "Hello"
+
+        fooBar(intValue)
+        fooBar(stringValue)
+    }
+
+[[https://play.golang.org/p/OYX_A2nPTJ][Playground Example]]
+
+* Homework
+
+.caption Your mission -- _should_you_choose_to_accept_it_ -- _and_you_will!_
+
+
+
+* Resources
+
+- [[https://dave.cheney.net/2012/01/18/why-go-gets-exceptions-right][Why Go gets exceptions right]]
