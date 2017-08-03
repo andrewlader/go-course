@@ -168,12 +168,24 @@ Thus...
 
 [[https://play.golang.org/p/OYX_A2nPTJ][Playground Example]]
 
+* Empty Structs
+
+- What? Why?
+- They have no width (size)
+- Useful for signaling channels or iterating over lists
+
+[[https://play.golang.org/p/YaK4v7ilRo][Example Playground]]
+
 * Homework
 
 .caption Your mission -- _should_you_choose_to_accept_it_ -- _and_you_will!_
 
-
+- Build a web service that returns the weather by zipcode
+- Manage an in-memory cache of zipcodes-to-weather
+- User worker pools to manage large number of incoming requests
 
 * Resources
 
 - [[https://dave.cheney.net/2012/01/18/why-go-gets-exceptions-right][Why Go gets exceptions right]]
+
+- [[https://dave.cheney.net/2014/03/25/the-empty-struct][Empty Struct]]
