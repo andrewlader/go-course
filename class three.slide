@@ -1,5 +1,5 @@
 Let's Go
-Class #4
+Class #3
 
 Andrew Lader
 Senior Technical Principal, Sirrus7
@@ -171,10 +171,11 @@ Thus...
 * Empty Structs
 
 - What? Why?
-- They have no width (size)
+- Well, they have no width (size)
 - Useful for signaling channels or iterating over lists
+- can even have methods
 
-[[https://play.golang.org/p/YaK4v7ilRo][Example Playground]]
+[[https://play.golang.org/p/LEzP9FqUBu][Example Playground]]
 
 * Homework
 
