@@ -2,7 +2,9 @@
 
 ## Preparing for the Course
 
+---
 ### Installing Go
+---
 
 The first step is to download and install Go [here](https://golang.org/dl/)
 
@@ -17,14 +19,6 @@ The most important part of installing Go is setting up the `$GOPATH` environment
 export GOPATH=$HOME/work
 export PATH=$PATH:$GOPATH/bin
 ```
-
-**NOTE:** If you are using a Nordstrom Mac, you will need to change your default shell from `ksh` to `bash` via the following command:
-
-```
-chsh -s /bin/bash
-```
-
-After entering your password, close all of your terminal instances and re-start the terminal console.
 
 #### Windows
 
@@ -41,7 +35,9 @@ The installer should have added the appropriate environment variables, but just 
     1. Enter `GOPATH` for the name, and path to your `work` folder
     1. Click `OK`
 
+---
 ### Workspace
+---
 
 The workspace is defined first by the location pointed to by `GOPATH`. Beneath the `src` folder is where projects are located.
 
