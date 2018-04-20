@@ -38,7 +38,7 @@ First, has _everyone_ installed Go?
 
 .image ./images/cons.png
 
-- A relatively young language, though not so much an issue anymore
+- A relatively young language, though not so much an issue anymore (we're on v1.10.1 and it's 6 yrs old)
 - Does not have true OO
 - Handling errors can be tedious, but required (maybe not a bad thing?)
 
@@ -50,9 +50,9 @@ Understanding a Go Workspace
 - Under that directory will be a `src` folder
 - A project consists of the SCM `/` your name or organization `/` and the project name
 
-    bitbucket.org/nordstrom/order-guard
+    github.com/your-org/repo-name
 
-    order-guard.go                      // The main package, which is run when the service starts up
+    my-main-class.go                // The main package, which is run when the service starts up
     |
     |-- 📂 webapi
             |
@@ -184,7 +184,7 @@ Now, it's time to Code!
 
 .image ./images/code.png _ 300
 
-[[https://github.com/AndrewLader/go-course/go-qsort.zip][download qsort code]]
+[[https://github.com/AndrewLader/go-sort/archive/master.zip][download qsort code]]
 
 * Assignment due next week
 
