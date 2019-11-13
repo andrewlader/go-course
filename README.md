@@ -43,7 +43,7 @@ The workspace is defined first by the location pointed to by `GOPATH`. Beneath t
 
 Usually, to conform to best practices, beneath the `src` folder are the names of the organizations where the code is stored. Typically, these are SCMs, like `github.com`.
 
-Beneath that folder is the name of the account owner for the SCM. For example: `nordstrom` or your own name.
+Beneath that folder is the name of the account owner for the SCM.
 
 And finally, the last folder is the Go project folder.
 
